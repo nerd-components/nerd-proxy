@@ -17,7 +17,7 @@ interface BarInterface {
     public function bar(): string;
 }
 
-$interfaceList = [FooInterface::class, BarInterface::class];
+$interfacesList = [FooInterface::class, BarInterface::class];
 
 $handler = new class implements Handler {
     public function invoke(string $methodName, array $args) {
@@ -30,13 +30,13 @@ $handler = new class implements Handler {
     }
 };
 
-$proxy = Proxy::newProxyInstance($handler, $interfaceList);
+$proxy = Proxy::newProxyInstance($handler, $interfacesList);
 
 $proxy instanceof FooInterface; // true
 $proxy instanceof BarInterface; // true
 
-$proxy->foo(); // will print: foo called
-$proxy->bar(); // will print: bar called
+$proxy->foo(); // 'foo called'
+$proxy->bar(); // 'bar called'
 ```
 
 Create proxy for given object:
