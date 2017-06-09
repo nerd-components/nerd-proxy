@@ -53,10 +53,11 @@ class Proxy
     {
         $class = new \ReflectionClass($className);
         return array_map(function (\ReflectionMethod $method) {
+            $visibility = self::renderMethodVisibility($method);
             $name = $method->getName();
             $args = self::renderParameters($method);
             $return = self::renderReturnType($method);
-            return compact('name', 'args', 'return');
+            return compact('name', 'args', 'return', 'visibility');
         }, $class->getMethods());
     }
 
@@ -77,5 +78,10 @@ class Proxy
         return $method->hasReturnType()
             ? "{$method->getReturnType()}"
             : "";
+    }
+
+    private static function renderMethodVisibility(\ReflectionMethod $method): string
+    {
+        return $method->isPrivate() ? 'private' : ($method->isProtected() ? 'protected' : 'public');
     }
 }
