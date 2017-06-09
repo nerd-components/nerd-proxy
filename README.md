@@ -2,6 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/nerd-components/nerd-proxy/badge.svg?branch=master)](https://coveralls.io/github/nerd-components/nerd-proxy?branch=master)
 [![Build Status](https://travis-ci.org/nerd-components/nerd-proxy.svg?branch=master)](https://travis-ci.org/nerd-components/nerd-proxy)
 [![StyleCI](https://styleci.io/repos/93853528/shield?branch=master)](https://styleci.io/repos/93853528)
+[![Dependency Status](https://www.versioneye.com/user/projects/593acd910fb24f003de0c7bc/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/593acd910fb24f003de0c7bc)
 
 A lightweight object proxy for PHP 7.
 
