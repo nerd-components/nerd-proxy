@@ -2,7 +2,9 @@
 
 namespace Nerd\Proxy;
 
+use ReflectionMethod;
+
 interface Handler
 {
-    public function invoke(string $methodName, array $args);
+    public function invoke(ReflectionMethod $method, array $args, $proxyInstance);
 }

@@ -14,7 +14,8 @@ return function (\Nerd\Proxy\Handler $handler)
     <?php foreach ($methodList as $method): ?>
         public function <?= $method['name'] ?>(<?= implode(', ', $method['args']) ?>)<?= $method['return'] ? ': ' . $method['return'] : '' ?> {
         $args = func_get_args();
-        <?= $method['return'] != 'void' ? 'return' : '' ?> call_user_func([$this->proxyHandler, 'handle'], '<?= $method['name'] ?>', $args);
+        $reflection = new \ReflectionMethod($this, '<?= $method['name'] ?>');
+        <?= $method['return'] != 'void' ? 'return' : '' ?> call_user_func([$this->proxyHandler, 'invoke'], $reflection, $args, $this);
         }
 
     <?php endforeach ?>

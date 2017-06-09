@@ -2,32 +2,15 @@
 
 namespace Nerd\Proxy;
 
-use Closure;
-use ReflectionClass;
-use ReflectionMethod;
+use \Closure;
+use \ReflectionClass;
 
 class Proxy
 {
-    public static function newProxyForObject($object, ObjectHandler $objectProxyHandler)
+    public static function newProxyForObject($object, Handler $handler)
     {
         $objectClass = get_class($object);
-        $proxyHandler = new class($object, $objectProxyHandler) implements Handler
-        {
-            private $object;
-            private $objectProxyHandler;
-
-            public function __construct($object, ObjectHandler $objectProxyHandler) {
-                $this->object =$object;
-                $this->objectProxyHandler = $objectProxyHandler;
-            }
-
-            public function invoke(string $name, array $args) {
-                $method = new ReflectionMethod($this->object, $name);
-                return $this->objectProxyHandler->invoke($name, $args, $method);
-            }
-        };
-
-        return self::newProxyInstance($proxyHandler, [], $objectClass);
+        return self::newProxyInstance($handler, [], $objectClass);
     }
 
     public static function newProxyInstance(Handler $handler, array $interfacesList, $objectClass = null)

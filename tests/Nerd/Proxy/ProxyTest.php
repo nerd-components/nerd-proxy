@@ -2,9 +2,10 @@
 
 namespace Nerd\Proxy;
 
-use Nerd\Proxy\Fixtures\BarInterface;
-use Nerd\Proxy\Fixtures\FooInterface;
-use PHPUnit\Framework\TestCase;
+use \Nerd\Proxy\Fixtures\BarInterface;
+use \Nerd\Proxy\Fixtures\FooInterface;
+use \PHPUnit\Framework\TestCase;
+use \ReflectionMethod;
 
 class ProxyTest extends TestCase
 {
@@ -12,8 +13,8 @@ class ProxyTest extends TestCase
     {
         $interfaces = [FooInterface::class, BarInterface::class];
         $instance = Proxy::newProxyInstance(new class implements Handler {
-            public function invoke(string $methodName, array $args) {
-                if ($methodName == 'barMethod4') {
+            public function invoke(ReflectionMethod $method, array $args, $proxyInstance) {
+                if ($method->getName() == 'barMethod4') {
                     return 10;
                 }
                 return null;
