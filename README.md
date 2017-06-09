@@ -1,4 +1,7 @@
 # Nerd Proxy
+[![Coverage Status](https://coveralls.io/repos/github/nerd-components/nerd-proxy/badge.svg?branch=master)](https://coveralls.io/github/nerd-components/nerd-proxy?branch=master)
+[![Build Status](https://travis-ci.org/nerd-components/nerd-proxy.svg?branch=master)](https://travis-ci.org/nerd-components/nerd-proxy)
+
 A lightweight object proxy for PHP 7.
 
 ## Usage
