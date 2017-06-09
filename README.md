@@ -8,7 +8,6 @@ Create object implementing given interfaces:
 
 use \Nerd\Proxy\Proxy;
 use \Nerd\Proxy\Handler;
-use \ReflectionMethod;
 
 interface FooInterface {
     public function foo(): string;
