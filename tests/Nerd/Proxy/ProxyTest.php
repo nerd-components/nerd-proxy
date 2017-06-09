@@ -32,7 +32,7 @@ class ProxyTest extends TestCase
     public function testObjectProxy()
     {
         $object = new BazClass();
-        $this->assertEquals(15, $object->baz(5, 10));
+        $this->assertEquals(30, $object->baz(5, 10));
 
         $objectProxy = Proxy::newProxyForObject($object, new class implements Handler {
             public function invoke(ReflectionMethod $method, array $args, $proxyInstance)
@@ -41,6 +41,6 @@ class ProxyTest extends TestCase
             }
         });
         $this->assertInstanceOf(BazClass::class, $objectProxy);
-        $this->assertEquals(15, $objectProxy->baz(5, 10));
+        $this->assertEquals(30, $objectProxy->baz(5, 10));
     }
 }

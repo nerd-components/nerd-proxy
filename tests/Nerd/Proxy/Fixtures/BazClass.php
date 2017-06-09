@@ -6,6 +6,11 @@ class BazClass
 {
     public function baz(int $a, int $b): int
     {
-        return $a + $b;
+        return $this->bass($a + $b);
+    }
+
+    protected function bass(int $val): int
+    {
+        return $val * 2;
     }
 }
