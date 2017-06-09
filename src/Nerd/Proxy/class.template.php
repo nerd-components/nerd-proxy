@@ -1,3 +1,4 @@
+<?php // @codingStandardsIgnoreStart ?>
 return function (\Nerd\Proxy\Handler $handler)
 {
     return new class($handler)
@@ -21,3 +22,4 @@ return function (\Nerd\Proxy\Handler $handler)
     <?php endforeach ?>
     };
 };
+<?php // @codingStandardsIgnoreEnd ?>
