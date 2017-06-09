@@ -17,6 +17,7 @@ class ProxyTest extends TestCase
                 if ($name == 'barMethod4') {
                     return 10;
                 }
+                return null;
             }
         }, $interfaces, null);
 
