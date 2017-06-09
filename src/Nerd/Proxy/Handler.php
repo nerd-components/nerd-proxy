@@ -4,5 +4,5 @@ namespace Nerd\Proxy;
 
 interface Handler
 {
-    public function handle(string $name, array $args);
+    public function invoke(string $methodName, array $args);
 }

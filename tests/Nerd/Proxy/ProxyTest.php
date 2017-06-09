@@ -12,9 +12,8 @@ class ProxyTest extends TestCase
     {
         $interfaces = [FooInterface::class, BarInterface::class];
         $instance = Proxy::newProxyInstance(new class implements Handler {
-            public function handle(string $name, array $args)
-            {
-                if ($name == 'barMethod4') {
+            public function invoke(string $methodName, array $args) {
+                if ($methodName == 'barMethod4') {
                     return 10;
                 }
                 return null;

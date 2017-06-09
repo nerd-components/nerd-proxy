@@ -6,5 +6,5 @@ use \ReflectionMethod;
 
 interface ObjectHandler
 {
-    public function handle(string $name, array $args, ReflectionMethod $method);
+    public function invoke(string $methodName, array $args, ReflectionMethod $method);
 }

@@ -21,9 +21,9 @@ class Proxy
                 $this->objectProxyHandler = $objectProxyHandler;
             }
 
-            public function handle(string $name, array $args) {
+            public function invoke(string $name, array $args) {
                 $method = new ReflectionMethod($this->object, $name);
-                return $this->objectProxyHandler->handle($name, $args, $method);
+                return $this->objectProxyHandler->invoke($name, $args, $method);
             }
         };
 
