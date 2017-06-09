@@ -3,7 +3,6 @@
 namespace Nerd\Proxy;
 
 use \Closure;
-use \ReflectionClass;
 
 class Proxy
 {
@@ -64,14 +63,6 @@ class Proxy
     private static function renderParameters(\ReflectionMethod $method): array
     {
         return array_map([self::class, 'renderParameter'], $method->getParameters());
-    }
-
-    public static function getInterfacesList($object): array
-    {
-        $interfaces = array_map(function (ReflectionClass $interface) {
-            return $interface->getName();
-        }, (new ReflectionClass($object))->getInterfaces());
-        return $interfaces;
     }
 
     private static function renderParameter(\ReflectionParameter $parameter): string
