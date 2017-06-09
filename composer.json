@@ -2,7 +2,6 @@
     "name": "nerd-components/nerd-proxy",
     "description": "Lightweight Object Proxy",
     "type": "library",
-    "version": "0.1",
     "scripts": {
         "test": "phpunit",
         "lint": "phpcs --standard=PSR2 src tests"
