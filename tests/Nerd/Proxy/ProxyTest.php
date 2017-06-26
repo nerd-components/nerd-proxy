@@ -3,7 +3,7 @@
 namespace Nerd\Proxy;
 
 use \Nerd\Proxy\Fixtures\BarInterface;
-use Nerd\Proxy\Fixtures\BazClass;
+use \Nerd\Proxy\Fixtures\BazClass;
 use \Nerd\Proxy\Fixtures\FooInterface;
 use \PHPUnit\Framework\TestCase;
 use \ReflectionMethod;
